@@ -6,7 +6,6 @@ function setupPoly (p) {
 	if (p) return new Polynomial(p);
 	return new Polynomial('5x^2 + 6y^2 - 7x^-5 + 5');
 }
-let poly1, poly2;
 
 describe('Polynomial Utility Functions', () => {
 
@@ -27,24 +26,24 @@ describe('Polynomial Utility Functions', () => {
 			expect(JSON.stringify(stringToTable('5x^2 + 6y^2 - 7x^-5 + 5')))
 				.to.equal(JSON.stringify({
 					'x^2': {
-						'coefficient': 5,
-						'x': 2,
-						'id': 'x^2'
+						coefficient: 5,
+						x: 2,
+						id: 'x^2'
 					},
 					'y^2': {
-						'coefficient': 6,
-						'y': 2,
-						'id': 'y^2'
+						coefficient: 6,
+						y: 2,
+						id: 'y^2'
 					},
 					'x^-5': {
-						'coefficient': -7
-						,'x': -5,
-						'id': 'x^-5'
-					}, 
+						coefficient: -7,
+						x: -5,
+						id: 'x^-5'
+					},
 					'1^1': {
-						'1': 1,
-						'coefficient': 5,
-						'id': '1^1'
+						1: 1,
+						coefficient: 5,
+						id: '1^1'
 					}
 				}));
 		});
@@ -57,7 +56,11 @@ describe('Polynomial Utility Functions', () => {
 
 		it('handles no coefficients Ex: x^12', () => {
 			expect(JSON.stringify(splitTerm('x^2'))).to.be
-				.equal(JSON.stringify({"coefficient":1,"x":2,"id":"x^2"}));
+				.equal(JSON.stringify({
+					coefficient: 1,
+					x: 2,
+					id: 'x^2'
+				}));
 		});
 
 		it('return undefined for 0', () => {
@@ -66,12 +69,22 @@ describe('Polynomial Utility Functions', () => {
 
 		it('handles no exponents Ex: x', () => {
 			expect(JSON.stringify(splitTerm('y'))).to.be
-				.equal(JSON.stringify({"coefficient":1,"y":1,"id":"y^1"}));
+				.equal(JSON.stringify({
+					coefficient: 1,
+					y: 1,
+					id: "y^1"
+				}));
 		});
 
-		it('handles complex terms Ex: 30x^3y^15', () => {
+		it('handles complex terms Ex:  30x^3y^15', () => {
 			expect(JSON.stringify(splitTerm('12x^2y^3z^4'))).to.be
-				.equal(JSON.stringify({"coefficient":12,"x":2,"y":3,"z":4,"id":"x^2y^3z^4"}));
+				.equal(JSON.stringify({
+					coefficient: 12,
+					x: 2,
+					y: 3,
+					z: 4,
+					id: "x^2y^3z^4"
+				}));
 		});
 	});
 
