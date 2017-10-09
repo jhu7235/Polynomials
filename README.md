@@ -3,8 +3,8 @@
 This is a polynomial class. It takes in a string or an instance of Polynomial and returns a Polynomial object.
 
 ## Methods
-1. add
-2. subtract
+* add
+* subtract
 * multiply
 
 ## To Test
