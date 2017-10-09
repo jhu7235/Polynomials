@@ -47,7 +47,7 @@ describe('Polynomial', () => {
 
 		it('returns an instance of Polynomial object', () => {
 			poly1 = setupPoly();
-			expect(poly1.add(poly1)).to.be.instanceof(Polynomial)
+			expect(poly1.add(poly1)).to.be.instanceof(Polynomial);
 		});
 
 	});

@@ -1,6 +1,9 @@
 import { Polynomial } from './Polynomial';
 import { createId } from './Polynomial.stringToTable';
 
+
+/*calcualte is a method used by Polynomial.add, Polynomial.subtract, Polynomial.multiply
+*/
 export function setUp(operand1, operand2) {
 	let operandTable1 = new Polynomial(operand1).polyObj,
 	operandTable2 = new Polynomial(operand2).polyObj;
@@ -23,7 +26,8 @@ export default function calculate(operand1, operand2, operator) {
 			return newPolynomial;
 
 		case 'DIVIDE':
-			newPolynomial.polyObj = divide(operand1, operand2);
+			// under development
+			// newPolynomial.polyObj = divide(operand1, operand2);
 			return newPolynomial;
 
 		default:
@@ -71,7 +75,7 @@ export function multiplyTerm(term1, term2) {
 
 	// console.log('1 term3', term1, term2);
 	term3.id = createId(term3);
-	
+
 	// console.log('2 term3', term1, term2);
 	return term3;
 }
