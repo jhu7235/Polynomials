@@ -16,10 +16,24 @@ describe('Polynomial', () => {
 			expect(poly1.polyObj).to.exist;
 		});
 
-		it('turns strings to object with structure {variable: {power: coefficent}}', () => {
+		it('turns strings to object with structure, Example 12xy^3z^4 + 5 => {x^1y^4z^4: { coefficient: 12, x: 1, y: 4, z: 4}, 1^1: { coefficient: 5, 1: 1 } }', () => {
 			poly1 = setupPoly();
-			assert(poly1 instanceof Object,
-				'does not correctly convert strings into object');
+			expect(poly1.polyObj).to.deep.equal({
+				'x^2': { coefficient: 5, x: 2, id: 'x^2' },
+				'y^2': { coefficient: 6, y: 2, id: 'y^2' },
+				'x^-5': { coefficient: -7, x: -5, id: 'x^-5' },
+				'1^1': { '1': 1, coefficient: 5, id: '1^1' },
+			});
+		});
+
+		it('stores the data correctly', () => {
+			poly1 = setupPoly();
+			expect(poly1.polyObj).to.deep.equal({
+				'x^2': { coefficient: 5, x: 2, id: 'x^2' },
+				'y^2': { coefficient: 6, y: 2, id: 'y^2' },
+				'x^-5': { coefficient: -7, x: -5, id: 'x^-5' },
+				'1^1': { '1': 1, coefficient: 5, id: '1^1' },
+			});
 		});
 
 	});
@@ -55,8 +69,6 @@ describe('Polynomial', () => {
 	describe('multiply method', () => {
 
 		it('is a function', () => {
-			const polyTemp = setupPoly('1 + 3 + 3x^2')
-			// console.log(polyTemp.polyObj)
 			poly1 = setupPoly();
 			expect(poly1.multiply).to.be.a('function');
 		});
@@ -68,8 +80,12 @@ describe('Polynomial', () => {
 
 	});
 
-	xit('has syntheticDivide function', () => {
-		expect(poly1.subtract).to.be.a('function')
+	describe('syntheticDivide method', () => {
+
+		it('is a function', () => {
+			expect(poly1.syntheticDivide).to.be.a('function');
+		});
+
 	});
 
 });
