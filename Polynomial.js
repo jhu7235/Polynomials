@@ -1,13 +1,15 @@
 import { stringToTable } from './Polynomial.stringToTable';
 import calculate, { add, subtract, multiply } from './Polynomial.calculate';
 
-// Polynomials should take in a string and return 
+// Polynomials should take in a string and return a Polynomal object
 export class Polynomial {
 	constructor(poly) {
 
-		// code
+		// if the input is a string convert it to a hashtable
 		if (typeof poly === 'string') this.polyObj = stringToTable(poly);
-		else if (poly instanceof Polynomial) this.polyObj = poly.polyObj;
+
+		// if the input is a Polynomial object clone the .polyObj property 
+		else if (poly instanceof Polynomial) this.polyObj = {...poly.polyObj};
 
 		// throws generic error
 		else throw new Error(`expected a string or an Polynomial object but got ${JSON.stringify(poly)}`);
@@ -16,7 +18,12 @@ export class Polynomial {
 }
 
 
-/* The methods are not in the class, but apart of the prototype chain to make so we don't need to regenerate the methods for every instance of a Polynomial.  All their methods will must point to the prototype chain. */
+/* 	The methods are not in the class, but apart of the 
+		prototype chain to make so we don't need to 
+		regenerate the methods for every instance of a 
+		Polynomial.  All their methods will must point to 
+		the prototype chain. 
+*/
 Polynomial.prototype.add = function (polyObj) {
 	return calculate(this, polyObj, 'ADD');
 };

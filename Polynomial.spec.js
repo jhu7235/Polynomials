@@ -1,11 +1,11 @@
 import { Polynomial } from './Polynomial';
-import { expect, assert } from 'chai';
+import { expect } from 'chai';
 
 function setupPoly (p) {
 	if (p) return new Polynomial(p);
 	return new Polynomial('5x^2 + 6y^2 - 7x^-5 + 5');
 }
-let poly1, poly2;
+let poly1;
 
 describe('Polynomial', () => {
 
