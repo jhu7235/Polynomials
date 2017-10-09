@@ -1,10 +1,9 @@
 import { Polynomial } from './Polynomial';
 import { expect, assert } from 'chai';
-import calculate, { add, subtract, multiply } from './Polynomial.calculate';
+import calculate, { add, subtract, multiply, divide } from './Polynomial.calculate';
 
 function setupPoly (p) {
 	if (p) return new Polynomial(p);
-
 	//default setup
 	return new Polynomial('5x^2 + 6y^2 - 7x^-5 + 5');
 }
@@ -130,6 +129,32 @@ describe('calculate method', () => {
 	        'x^1': { coefficient: 1, x: 1, id: 'x^1' },
 	        '1^1': { 1: 1, coefficient: 1, id: '1^1' },
 	      }));
+		});
+
+	});
+
+	describe('divide method', () => {
+
+		it('is a function', () => {
+			expect(divide).to.be.a('function');
+		});
+
+		it('Not a test: takes in Polynomial.polyObj as arguement', () => {
+			assert(true === true, 'not a test');
+		});
+		it('returns an plain old object', () => {
+			poly1 = setupPoly();
+			poly2 = setupPoly('10x^5');
+			expect(divide(poly1, poly2)).to.be.an('object');
+		});
+
+		it('multiplies correctly ', () => {
+			poly1 = setupPoly('x2 + 5x + 6');
+			poly2 = setupPoly('x - 1');
+			let polyAnswer = setupPoly('x - 6').polyObj;
+			expect(JSON.stringify(divide(poly1, poly2))).to.be
+				.equal(JSON.stringify(polyAnswer));
+
 		});
 
 	});
