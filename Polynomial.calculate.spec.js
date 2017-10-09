@@ -126,7 +126,7 @@ describe('calculate method', () => {
 					'x^3': { coefficient: 20, x: 3, id: 'x^3' },
 	        'x^2': { coefficient: 30, x: 2, id: 'x^2' },
 	        'x^1': { coefficient: 15, x: 1, id: 'x^1' },
-	        '1^1': { '1': 1, coefficient: 5, id: '1^1' },
+	        '1^1': { 1: 1, coefficient: 5, id: '1^1' },
 	      }));
 
 			let poly5 = setupPoly('x + 1');
