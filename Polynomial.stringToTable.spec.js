@@ -12,14 +12,12 @@ describe('Polynomial Utility Functions', () => {
 	describe('stringToTable(){ }', () => {
 		it('is a function', () => {
 			expect(stringToTable).to.be.a('function');
-			// console.log('stringToTable', stringToTable('5x^2 + 6y^2 - 7x^-5 + 5'));
 		});
 
 		it('returns an object', () => {
 			expect(stringToTable('5')).to.be.an('object');
 			expect(stringToTable('-5x^2 + 6y^2 - 7x^-5 + 5')).to.be.an('object');
 			expect(stringToTable('x')).to.be.an('object');
-			// console.log('stringToTable', stringToTable('-5x^2 + 6y^2 - 7x^-5 + 5'));
 		});
 
 		it('correctly formats data', () => {
