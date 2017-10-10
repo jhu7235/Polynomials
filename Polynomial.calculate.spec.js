@@ -23,7 +23,7 @@ describe('calculate method', () => {
 			expect(calculate(poly1, poly2, 'ADD')).to.be.instanceof(Polynomial);
 		});
 
-	});
+	}); 
 
 	describe('add method', () => {
 
@@ -148,7 +148,7 @@ describe('calculate method', () => {
 			expect(divide(poly1, poly2)).to.be.an('object');
 		});
 
-		it('multiplies correctly ', () => {
+		it('divides correctly ', () => {
 			poly1 = setupPoly('x2 + 5x + 6');
 			poly2 = setupPoly('x - 1');
 			let polyAnswer = setupPoly('x - 6').polyObj;
