@@ -11,6 +11,10 @@ This is a polynomial class. It takes in a string or an instance of Polynomial an
 ## Storage
 This is a method that stores data in a file system.
 
+### Storage Methods
+* storeObjects
+* readObject
+
 ## Documentation
 Please run tests to see how class and methods behave.
 
