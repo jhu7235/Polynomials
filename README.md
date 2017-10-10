@@ -1,14 +1,18 @@
-# Polynomials
+# Polynomials & Storage
 
+## Polynomials
 This is a polynomial class. It takes in a string or an instance of Polynomial and returns a Polynomial object.
 
-## Documentation
-Please run tests to see how class and methods behave.
-
-## Methods
+### Polynomial Methods
 * add
 * subtract
 * multiply
+
+## Storage
+This is a method that stores data in a file system.
+
+## Documentation
+Please run tests to see how class and methods behave.
 
 ## To Test
 1. `npm install`
