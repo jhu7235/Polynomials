@@ -8,7 +8,12 @@
   },
   "author": "Jason Hu",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "chai-as-promised": "^7.1.1",
+    "hashids": "^1.1.1",
+    "webhdfs": "^1.1.1"
+  },
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
