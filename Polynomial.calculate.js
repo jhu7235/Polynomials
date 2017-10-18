@@ -114,8 +114,20 @@ export function multiplyTerm(term1, term2) {
 	return term3;
 }
 
-export function divide() {
+/* -----------------HELPER-------------------- */
+/* HOF - takes two tables, "synthetic divide" the terms, and
+ * returns a new a table.											 */
+export function divide(term1, term2) {
 // under development
+// follow this format:
+// 			_____________
+// x+1 )x^2 - 9x - 10
+// 		 -x^2 - x 			 ->  x
+// 		 __________
+// 					-10x - 10
+// 					-10x - 10	 -> -10
+// 
+// ans: x - 10
 }
 
 /* -----------------HELPER-------------------- */
