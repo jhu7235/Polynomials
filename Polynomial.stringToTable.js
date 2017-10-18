@@ -99,7 +99,9 @@ export function stringToTable(poly) {
 	let polyTable = {};
 	poly.replace(' - ', ' + -').split(' + ').forEach(el => {
 		let value = splitTerm(el);
-		if(polyTable[value.id]) polyTable[value.id] += value;
+		if(polyTable[value.id]) {
+			polyTable[value.id].coefficient += value.coefficient;
+		}
 		else polyTable[value.id] = value;
 	});
 	return polyTable;

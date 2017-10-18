@@ -2,11 +2,6 @@ import { Polynomial } from './Polynomial';
 import { getPowerVariableAndCoeefficient, createDefaultValues, createId, splitTerm, stringToTable } from './Polynomial.stringToTable';
 import { expect } from 'chai';
 
-function setupPoly (p) {
-	if (p) return new Polynomial(p);
-	return new Polynomial('5x^2 + 6y^2 - 7x^-5 + 5');
-}
-
 describe('Polynomial Utility Functions', () => {
 
 	describe('stringToTable(){ }', () => {

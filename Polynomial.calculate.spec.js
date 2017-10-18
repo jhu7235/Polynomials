@@ -133,7 +133,7 @@ describe('calculate method', () => {
 
 	});
 
-	describe('divide method', () => {
+	xdescribe('divide method', () => {
 
 		it('is a function', () => {
 			expect(divide).to.be.a('function');
@@ -142,6 +142,7 @@ describe('calculate method', () => {
 		it('Not a test: takes in Polynomial.polyObj as arguement', () => {
 			assert(true === true, 'not a test');
 		});
+
 		it('returns an plain old object', () => {
 			poly1 = setupPoly();
 			poly2 = setupPoly('10x^5');
