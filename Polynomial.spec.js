@@ -22,12 +22,8 @@ let poly1;
 
 describe('Polynomial', () => {
 
-	describe('converts string to array of objects', () => {
+	describe('converts string to a polynomial table (Polynomial.polynomialTable)', () => {
 
-		it('stores coefficents in this.polynomialTable', () => {
-			poly1 = setupPoly();
-			expect(poly1.polynomialTable).to.exist;
-		});
 
 		it('turns strings to object with structure, Example 12xy^3z^4 + 5 => {\n  x^1y^4z^4: { coefficient: 12, x: 1, y: 4, z: 4},\n  1^1: { coefficient: 5, 1: 1 } \n}', () => {
 			poly1 = setupPoly();
@@ -37,6 +33,11 @@ describe('Polynomial', () => {
 				'x^-5': { coefficient: -7, x: -5, id: 'x^-5' },
 				'1^1': { '1': 1, coefficient: 5, id: '1^1' },
 			});
+		});
+
+		it('stores coefficents in this.polynomialTable', () => {
+			poly1 = setupPoly();
+			expect(poly1.polynomialTable).to.exist;
 		});
 
 		it('stores the data correctly', () => {
