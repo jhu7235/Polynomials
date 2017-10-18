@@ -16,7 +16,7 @@ export function stringToTable(poly) {
 	poly.replace(' - ', ' + -').split(' + ').forEach(el => {
 
 		/* turns term (string) into term (object) */
-		let value = splitTerm(el);
+		let value = termToTable(el);
 
 		/* adds together redundant terms */
 		if(polynomialTable[value.id]) {
@@ -31,7 +31,7 @@ export function stringToTable(poly) {
 
 /* -----------------HELPER-------------------- */
 /* HOF - converts term (string) to term (key-value pair) */
-export function splitTerm(term) {
+export function termToTable(term) {
 	// if (!term || term === '0') return undefined;
 	let termObj = getPowerVariableAndCoeefficient(term)
 	termObj.id = createId(termObj);
@@ -68,7 +68,7 @@ export function createId(obj) {
 	 * x^3y^2z^1
 	 * y^2z^1x^3
 	 * z^1x^3y^2
-	 * should all equal x^3y^3z^1 */
+	 * should all equal x^3y^3z^1    					*/
 	return arr.sort().join('');
 }
 
@@ -91,7 +91,7 @@ export function createDefaultValues(obj) {
 /* -----------------HELPER-------------------- */
 /* HOF - takes in a string and return a termObj which will be
  * added to Polynomial.polynomialTable. termObj will contain a 
- * coeeficient key and all variables in the term */
+ * coeeficient key and all variables in the term 							*/
 export function getPowerVariableAndCoeefficient(term) {
 
 	let termObj = {};

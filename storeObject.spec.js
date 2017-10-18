@@ -15,7 +15,7 @@ chai.use(chaiAsPromised);
 
 describe('storage', () => {
 
-	xdescribe('storeObjects(){ }', () => {
+	describe('storeObjects(){ }', () => {
 
 		it('is a function', () => {
 			expect(storeObjects).to.be.a('function');
@@ -76,7 +76,7 @@ describe('storage', () => {
 
 	});
 
-	describe('readObject(){ }', () => {
+	xdescribe('readObject(){ }', () => {
 
 		it('is a function', () => {
 			expect(readObject).to.be.a('function');

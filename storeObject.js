@@ -15,7 +15,7 @@ const fsPromise = Promise.promisifyAll(fs);
 
 /* ------------------MAIN------------------- */
 /* takes an object, stores it, and the returns
- * a promise for the fileId of the location  */
+ * a promise for the fileId                  */
 export function storeObjects() {
 
   /*  Node throws an out of heap memory error if you 
@@ -31,7 +31,8 @@ export function storeObjects() {
     /* a promise that resolves to an fileId*/
     return new Promise(resolve => {
       const checkAndAddFile = () => {
-        fileId = createHashPath();
+        /* create a fileId using a hashId generator */
+        fileId = createFileId();
 
         /* check for collision */
         fs.exists(path + fileId, function (exists) {
@@ -54,7 +55,7 @@ export function storeObjects() {
 }
 
 /* creates a random 25 character alpha-numeric hash ID */
-export function createHashPath() {
+export function createFileId() {
 
   /* using a hashing function is a good way to avoid collisions 
    * and generate unique ids                                    */
@@ -72,6 +73,8 @@ export function writeData(path, data) {
   const stream = fs.createWriteStream(path);
   return new Promise((resolve) => {
       stream.once('open', function() {
+
+        /* converts the data to a string for writing to file */
         stream.write(JSON.stringify(data));
         stream.end(resolve);
       }

@@ -1,4 +1,4 @@
-import { getPowerVariableAndCoeefficient, createDefaultValues, createId, splitTerm, stringToTable } from './Polynomial.stringToTable';
+import { getPowerVariableAndCoeefficient, createDefaultValues, createId, termToTable, stringToTable } from './Polynomial.stringToTable';
 import { expect } from 'chai';
 
 describe('Polynomial Utility Functions', () => {
@@ -41,13 +41,13 @@ describe('Polynomial Utility Functions', () => {
 		});
 	});
 
-	describe('splitTerm(){ }', () => {
+	describe('termToTable(){ }', () => {
 		it('is a function', () => {
-			expect(splitTerm).to.be.a('function');
+			expect(termToTable).to.be.a('function');
 		});
 
 		it('handles no coefficients Ex: x^12', () => {
-			expect(JSON.stringify(splitTerm('x^2'))).to.be
+			expect(JSON.stringify(termToTable('x^2'))).to.be
 				.equal(JSON.stringify({
 					coefficient: 1,
 					x: 2,
@@ -56,7 +56,7 @@ describe('Polynomial Utility Functions', () => {
 		});
 
 		it('handles no exponents Ex: x', () => {
-			expect(JSON.stringify(splitTerm('y'))).to.be
+			expect(JSON.stringify(termToTable('y'))).to.be
 				.equal(JSON.stringify({
 					coefficient: 1,
 					y: 1,
@@ -65,7 +65,7 @@ describe('Polynomial Utility Functions', () => {
 		});
 
 		it('handles complex terms Ex:  30x^3y^15', () => {
-			expect(JSON.stringify(splitTerm('12x^2y^3z^4'))).to.be
+			expect(JSON.stringify(termToTable('12x^2y^3z^4'))).to.be
 				.equal(JSON.stringify({
 					coefficient: 12,
 					x: 2,
