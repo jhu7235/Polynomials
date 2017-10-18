@@ -23,7 +23,7 @@ describe('calculate method', () => {
 			expect(calculate(poly1, poly2, 'ADD')).to.be.instanceof(Polynomial);
 		});
 
-	}); 
+	});
 
 	describe('add method', () => {
 
@@ -31,11 +31,11 @@ describe('calculate method', () => {
 			expect(add).to.be.a('function');
 		});
 
-		it('Not a test: takes in Polynomial.polyObj as arguement', () => {
+		it('Not a test: takes in Polynomial.polynomialTable as arguement', () => {
 			assert(true === true, 'not a test');
 		});
 
-		it('returns an plain old object', () => {
+		it('returns an plain old object, which will be used to set Polynomial.polynomialTable', () => {
 			poly1 = setupPoly();
 			poly2 = setupPoly('10x^5');
 			expect(add(poly1, poly2)).to.be.an('object');
@@ -62,11 +62,11 @@ describe('calculate method', () => {
 			expect(subtract).to.be.a('function');
 		});
 
-		it('Not a test: takes in Polynomial.polyObj as arguement', () => {
+		it('Not a test: takes in Polynomial.polynomialTable as arguement', () => {
 			assert(true === true, 'not a test');
 		});
 
-		it('returns an plain old object', () => {
+		it('returns an plain old object, which will be used to set Polynomial.polynomialTable', () => {
 			poly1 = setupPoly();
 			poly2 = setupPoly('10x^5');
 			expect(subtract(poly1, poly2)).to.be.an('object');
@@ -93,10 +93,10 @@ describe('calculate method', () => {
 			expect(multiply).to.be.a('function');
 		});
 
-		it('Not a test: takes in Polynomial.polyObj as arguement', () => {
+		it('Not a test: takes in Polynomial.polynomialTable as arguement', () => {
 			assert(true === true, 'not a test');
 		});
-		it('returns an plain old object', () => {
+		it('returns an plain old object, which will be used to set Polynomial.polynomialTable', () => {
 			poly1 = setupPoly();
 			poly2 = setupPoly('10x^5');
 			expect(multiply(poly1, poly2)).to.be.an('object');
@@ -139,11 +139,11 @@ describe('calculate method', () => {
 			expect(divide).to.be.a('function');
 		});
 
-		it('Not a test: takes in Polynomial.polyObj as arguement', () => {
+		it('Not a test: takes in Polynomial.polynomialTable as arguement', () => {
 			assert(true === true, 'not a test');
 		});
 
-		it('returns an plain old object', () => {
+		it('returns an plain old object, which will be used to set Polynomial.polynomialTable', () => {
 			poly1 = setupPoly();
 			poly2 = setupPoly('10x^5');
 			expect(divide(poly1, poly2)).to.be.an('object');
@@ -152,7 +152,7 @@ describe('calculate method', () => {
 		it('divides correctly ', () => {
 			poly1 = setupPoly('x2 + 5x + 6');
 			poly2 = setupPoly('x - 1');
-			let polyAnswer = setupPoly('x - 6').polyObj;
+			let polyAnswer = setupPoly('x - 6').polynomialTable;
 			expect(JSON.stringify(divide(poly1, poly2))).to.be
 				.equal(JSON.stringify(polyAnswer));
 

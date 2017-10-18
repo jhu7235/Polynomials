@@ -1,24 +1,37 @@
 import { Polynomial } from './Polynomial';
 import { expect } from 'chai';
 
-function setupPoly (p) {
-	if (p) return new Polynomial(p);
+function setupPoly (polynomial) {
+	if (polynomial) return new Polynomial(polynomial);
 	return new Polynomial('5x^2 + 6y^2 - 7x^-5 + 5');
 }
 let poly1;
+
+
+/* You're an esteemed engineer at Math & Co. in their Algebraic 
+ * Infrastructure team. The company is pivoting towards using 
+ * this new technology that is based on polynomials and many of 
+ * your peers are on the verge of creating servers that will
+ * crunch polynomials. You have been tasked with designing a
+ * class to optimally represent a polynomial for their use. This
+ * class would need to be <high-performance> and cater to the
+ * <operations> that can be performed on polynomials. Please provide
+ * commentary on your thought process in your design and the code
+ * for this class in a language of your choice.*/
+
 
 describe('Polynomial', () => {
 
 	describe('converts string to array of objects', () => {
 
-		it('stores coefficents in this.polyObj', () => {
+		it('stores coefficents in this.polynomialTable', () => {
 			poly1 = setupPoly();
-			expect(poly1.polyObj).to.exist;
+			expect(poly1.polynomialTable).to.exist;
 		});
 
-		it('turns strings to object with structure, Example 12xy^3z^4 + 5 => {x^1y^4z^4: { coefficient: 12, x: 1, y: 4, z: 4}, 1^1: { coefficient: 5, 1: 1 } }', () => {
+		it('turns strings to object with structure, Example 12xy^3z^4 + 5 => {\n  x^1y^4z^4: { coefficient: 12, x: 1, y: 4, z: 4},\n  1^1: { coefficient: 5, 1: 1 } \n}', () => {
 			poly1 = setupPoly();
-			expect(poly1.polyObj).to.deep.equal({
+			expect(poly1.polynomialTable).to.deep.equal({
 				'x^2': { coefficient: 5, x: 2, id: 'x^2' },
 				'y^2': { coefficient: 6, y: 2, id: 'y^2' },
 				'x^-5': { coefficient: -7, x: -5, id: 'x^-5' },
@@ -28,7 +41,7 @@ describe('Polynomial', () => {
 
 		it('stores the data correctly', () => {
 			poly1 = setupPoly();
-			expect(poly1.polyObj).to.deep.equal({
+			expect(poly1.polynomialTable).to.deep.equal({
 				'x^2': { coefficient: 5, x: 2, id: 'x^2' },
 				'y^2': { coefficient: 6, y: 2, id: 'y^2' },
 				'x^-5': { coefficient: -7, x: -5, id: 'x^-5' },
@@ -89,14 +102,3 @@ describe('Polynomial', () => {
 	});
 
 });
-
-
-
-
-
-
-
-
-
-
-

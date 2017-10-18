@@ -1,4 +1,3 @@
-import { Polynomial } from './Polynomial';
 import { getPowerVariableAndCoeefficient, createDefaultValues, createId, splitTerm, stringToTable } from './Polynomial.stringToTable';
 import { expect } from 'chai';
 
@@ -54,10 +53,6 @@ describe('Polynomial Utility Functions', () => {
 					x: 2,
 					id: 'x^2'
 				}));
-		});
-
-		it('return undefined for 0', () => {
-			expect(splitTerm('0')).to.be.an('undefined');
 		});
 
 		it('handles no exponents Ex: x', () => {
