@@ -19,7 +19,6 @@ let poly1;
  * commentary on your thought process in your design and the code
  * for this class in a language of your choice.										*/
 
-
 describe('Polynomial', () => {
 
 	describe('converts string to a polynomial table (Polynomial.polynomialTable)', () => {
@@ -27,7 +26,6 @@ describe('Polynomial', () => {
 
 		it('turns strings to object with structure, Example 12xy^3z^4 + 5 => {\n  x^1y^4z^4: { coefficient: 12, x: 1, y: 4, z: 4},\n  1^1: { coefficient: 5, 1: 1 } \n}', () => {
 			poly1 = setupPoly();
-			console.log('HELLO', poly1.polynomialTable);
 			expect(poly1.polynomialTable).to.deep.equal({
 				'x^2': { coefficient: 5, x: 2, id: 'x^2' },
 				'y^2': { coefficient: 6, y: 2, id: 'y^2' },
