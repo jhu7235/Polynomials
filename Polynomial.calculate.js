@@ -7,7 +7,14 @@ import { createId } from './Polynomial.stringToTable';
  * 		Polynomial.add, 
  * 		Polynomial.subtract,
  * 		Polynomial.multiply,
- * 		Polynomial.syntheticDivide 													*/
+ * 		Polynomial.syntheticDivide 	
+ *
+ * INPUT: 
+ * 		operand1 = instance of Polynomial
+ * 		operand2 = instance of Polynomial
+ * 		operator = instance of String 		
+ *								 
+ * OUTPUT: instance of Polynomial 						*/
 export default function calculate(operand1, operand2, operator) {
 	const newPolynomial = new Polynomial(operand1);
 	switch (operator) {
@@ -135,6 +142,6 @@ export function divide(term1, term2) {
  * into a  polynomial.polynomialTables 				 */
 export function setUp(operand1, operand2) {
 	let polynomialTable1 = new Polynomial(operand1).polynomialTable,
-	operandTable2 = new Polynomial(operand2).polynomialTable;
+		operandTable2 = new Polynomial(operand2).polynomialTable;
 	return {polynomialTable1, operandTable2};
 }

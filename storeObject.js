@@ -25,14 +25,14 @@ export function storeObjects() {
 
   /* returns an array of fileId promises */
   return Promise.map([...arguments], data => {
-    let fileId;
-    let path = './storage/';
 
     /* a promise that resolves to an fileId*/
     return new Promise((resolve, reject) => {
       const checkAndAddFile = () => {
+
         /* create a fileId using a hashId generator */
-        fileId = createFileId();
+        const fileId = createFileId(),
+          path = './storage/';
 
         /* check for collision */
         fs.exists(path + fileId, function (exists) {
@@ -83,7 +83,7 @@ export function writeData(path, data) {
 }
 
 /* async-ly read and returns the object. It takes in a fileId,
- * returns an  */
+ * returns a JSON object */
 export function readObject(fileId) {
   var path = './storage/' + fileId;
   return fsPromise.readFileAsync(path)

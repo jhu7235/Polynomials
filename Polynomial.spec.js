@@ -17,7 +17,13 @@ let poly1;
  * class would need to be <high-performance> and cater to the
  * <operations> that can be performed on polynomials. Please provide
  * commentary on your thought process in your design and the code
- * for this class in a language of your choice.										*/
+ * for this class in a language of your choice.										
+ * Assumptions: 
+ * 			1. the operations
+ * 						1. add
+ *						2. subtract
+ * 						3. multiply
+ * 						4. syntheticDivide																	*/
 
 describe('Polynomial', () => {
 

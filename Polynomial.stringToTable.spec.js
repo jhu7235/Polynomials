@@ -86,20 +86,19 @@ describe('Polynomial Utility Functions', () => {
 				})).to.equal('x^2y^3z^4');
 		});
 
-		it('returns an id that is sorted alphabetically', () => {
+		it('overwrites id', () => {
 			expect(createId({
 				x: 1,
 				coefficient: 2
 			})).to.equal('x^1');
-		});
 
-		it('overwrites id', () => {
 			expect(createId({
 				x: 1,
 				coefficient: 2,
 				id: 'x^123'
 			})).to.equal('x^1');
 		});
+
 	});
 
 	describe('createDefaultValues(){ }', () => {

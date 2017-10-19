@@ -26,19 +26,19 @@ export class Polynomial {
  * prototype chain to make so we don't need to 
  * regenerate the methods for every instance of a 
  * Polynomial.  All their methods will must point to 
- * the prototype chain. */
-Polynomial.prototype.add = function (polynomialTable) {
-	return calculate(this, polynomialTable, 'ADD');
+ * the prototype chain. 											*/
+Polynomial.prototype.add = function (polynomial) {
+	return calculate(this, polynomial, 'ADD');
 };
 
-Polynomial.prototype.subtract = function (polynomialTable) {
-		return calculate(this, polynomialTable, 'SUBTRACT');
+Polynomial.prototype.subtract = function (polynomial) {
+		return calculate(this, polynomial, 'SUBTRACT');
 };
 
-Polynomial.prototype.multiply = function (polynomialTable) {
-		return calculate(this, polynomialTable, 'MULTIPLY');
+Polynomial.prototype.multiply = function (polynomial) {
+		return calculate(this, polynomial, 'MULTIPLY');
 };
 
-Polynomial.prototype.syntheticDivide = function (polynomialTable) {
-		return calculate(this, polynomialTable, 'DIVIDE');
+Polynomial.prototype.syntheticDivide = function (polynomial) {
+		return calculate(this, polynomial, 'DIVIDE');
 };
