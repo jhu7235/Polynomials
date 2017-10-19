@@ -29,7 +29,7 @@ export function storeObjects() {
     let path = './storage/';
 
     /* a promise that resolves to an fileId*/
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       const checkAndAddFile = () => {
         /* create a fileId using a hashId generator */
         fileId = createFileId();
@@ -40,7 +40,7 @@ export function storeObjects() {
           if (!exists) {
             writeData(path + fileId, data)
               .then(resolve(fileId))
-              .catch(console.error);
+              .catch(reject);
 
           /* if a collision happened, just try again */
           } else {
@@ -82,7 +82,8 @@ export function writeData(path, data) {
   });
 }
 
-/* async-ly read and returns the object */
+/* async-ly read and returns the object. It takes in a fileId,
+ * returns an  */
 export function readObject(fileId) {
   var path = './storage/' + fileId;
   return fsPromise.readFileAsync(path)

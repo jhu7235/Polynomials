@@ -77,15 +77,15 @@ export function createId(obj) {
  * entered this function will default it to 1 */
 export function createDefaultValues(obj) {
 
-	let copy = {...obj},
+	let objectWithDefault = {...obj},
 		toSize = 0;
 
-	for (let key in copy) {
-		if (copy[key] === null) copy[key] = 1;
+	for (let key in objectWithDefault) {
+		if (objectWithDefault[key] === null) objectWithDefault[key] = 1;
 		toSize++;
 	}
-	if (toSize < 2) copy['1'] = 1;
-	return copy;
+	if (toSize < 2) objectWithDefault['1'] = 1;
+	return objectWithDefault;
 }
 
 /* -----------------HELPER-------------------- */
@@ -96,25 +96,35 @@ export function getPowerVariableAndCoeefficient(term) {
 
 	let termObj = {};
 	termObj.coefficient = null;
+
+	/* insert a delimiter between variables and 
+	 * coefficients Ex: 12xy^2 => 12,x,y^2 								*/
 	term = term.replace(/([A-Za-z])([A-Za-z])/g, '$1,$2');
 	term = term.replace(/([0-9])([A-Za-z])/g, '$1,$2');
 
-	/* split term into arrays 12xy^2 => [12,x,y^2] */
+	/* split term into arrays 12xy^2 => [12,x,y^2]  			*/
 	let termArr = term.split(',').forEach(el => {
 
-		/* if element is number set coefficient */
+		/* if we can number-cast it, we will set that 
+		 * as the coefficient 											  			*/
 		if(Number(el)) termObj.coefficient = Number(el);
 
-		/* else and element has exponent set exponent */
+		/* else if we can number-cast what is after ^, then
+		 * we can use it to set the variable and exponents
+		 * Ex: y^6 => { y: 6 } 															*/
 		else if(Number(el.split('^')[1])) termObj[el.split('^')[0]] = Number(el.split('^')[1]);
 
-		/* else set default exponent */
-		else termObj[el.split('^')[0]] = 1;
+		/* if we can't number-cast it, then default it the
+		 * exponent to 1.
+		 * Ex: x^? => { x: 1} 															*/
+		else if(!Number(el.split('^')[1])) termObj[el.split('^')[0]] = 1;
+
+		else throw new Error(`cannot handle the exponent symbol or value: ${Number(el.split('^')[1])}`)
 	})
 
 	/* handle other edge cases such as no variable Ex: '5' */
 	termObj = createDefaultValues(termObj);
-	return termObj
+	return termObj;
 }
 
 

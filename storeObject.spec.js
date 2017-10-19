@@ -13,7 +13,7 @@ chai.use(chaiAsPromised);
 		design decision.
 */
 
-describe('storage', () => {
+xdescribe('storage', () => {
 
 	describe('storeObjects(){ }', () => {
 
